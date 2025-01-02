@@ -1,0 +1,220 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package cybersecurity;
+import javax.swing.*;
+
+import javax.swing.JOptionPane;
+
+
+
+/**
+ *
+ * @author ayasa
+ */
+public class PermissionsWindow extends javax.swing.JFrame {
+private final String role;
+private final AccessControl accessControl;
+private boolean conflictFixed =false;
+    private Object roleComboBox;
+    /**
+     * Creates new form PermissionsWindow
+     * @param role
+     */
+    public PermissionsWindow(String role) {
+        this.role=role;
+        this.accessControl=new AccessControl();
+        initComponents();
+        setPermissions(role);
+    }
+
+   
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        textArea1 = new java.awt.TextArea();
+        jLabel4 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(202, 186, 192));
+
+        jPanel2.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel2.setPreferredSize(new java.awt.Dimension(0, 25));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 25, Short.MAX_VALUE)
+        );
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cybersecurity/employee (1).png"))); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("SimSun", 1, 24)); // NOI18N
+        jLabel2.setText("Role :");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(114, 72, 94));
+        jButton1.setText("Return");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        textArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        textArea1.setEditable(false);
+        textArea1.setFont(new java.awt.Font("SimSun", 1, 18)); // NOI18N
+        textArea1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                textArea1ComponentShown(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jLabel4.setText("role");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(139, 139, 139)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(287, 287, 287)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel4))
+                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 53, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    this.dispose();
+    new AcceeControlGUI().setVisible(true);
+
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textArea1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_textArea1ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textArea1ComponentShown
+
+       
+private void setPermissions(String role) {
+  
+   jLabel4.setText(role);
+
+   String permissions = accessControl.getAccessLevel(role);
+    textArea1.setText(permissions);
+
+    // Only check for conflicts if the role is "Admin" and the conflict is not fixed
+    if ("Admin".equals(role)) {
+        System.out.println("Role: " + role);
+        System.out.println("Conflict fixed: " + conflictFixed);
+
+        if (!conflictFixed) {  // Only check if the conflict has not been resolved
+            String conflictMessage = accessControl.detectAdminConflict();
+            if (!"No conflict detected.".equals(conflictMessage)) {
+                // Show conflict message and ask user to fix it
+                int response = JOptionPane.showConfirmDialog(
+                    this,
+                    conflictMessage + "\nDo you want to fix it?",
+                    "Conflict Detected",
+                    JOptionPane.YES_NO_OPTION
+                );
+
+                if (response == JOptionPane.YES_OPTION) {
+                    // Fix the conflict by updating Admin's permissions
+                    accessControl.fixAdminConflict();
+                    conflictFixed = true; // Mark the conflict as resolved
+
+                    // Inform the user that the conflict has been resolved
+                    JOptionPane.showMessageDialog(
+                        this,
+                        "Conflict fixed! Admin now has full system access.",
+                        "Conflict Resolved",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+
+                    // Update the permissions and display them
+                    permissions = accessControl.getAccessLevel(role);
+                    textArea1.setText(permissions);
+               }
+           }
+        }
+        System.out.println("role" + role);
+        System.out.println("conflict" + conflictFixed);
+    }
+
+} public static void main(String []args) {
+        // You can call the PermissionsWindow from here or from other parts of your program.
+        java.awt.EventQueue.invokeLater(() -> {
+            new PermissionsWindow("Admin").setVisible(true); // Replace "Admin" with role
+        });
+
+}
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private java.awt.TextArea textArea1;
+    // End of variables declaration//GEN-END:variables
+}

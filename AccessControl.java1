@@ -1,0 +1,49 @@
+package cybersecurity;
+import java.util.HashMap;
+import java.util.Map;
+
+class AccessControl {
+private Map<String, String[]> acl = new HashMap<>();
+private boolean adminConflictFixed=false;
+ public AccessControl() {
+	        initializeACL(); }
+ private void initializeACL() {
+ acl.put("Client", new String[]{ "Account Access", "Transaction Management", "View Public Resources", "Security Settings", "Request Services" });
+acl.put("Employee", new String[]{"Account Handling", "Transaction Processing", "Customer Service", "Limited Access to Sensitive Data" });
+acl.put("Admin", new String[]{ "Manage Employees", "View Sensitive Data", "Reporting&Auditing", "Limited Access" });  
+acl.put("unassignedRole", null);
+	    }
+public String getAccessLevel(String role) {
+ String[] permissions = acl.get(role);
+     if (permissions == null) {
+	 return "No permissions found for the\nselected role.";
+	        }
+ String permissionList = "";
+ for (int i=0;i<permissions.length;i++) {
+	permissionList+="• "+permissions[i]+"\n"+"\n";
+                   }
+	 return permissionList.toString();
+	    }
+public String detectAdminConflict() {
+     if(!adminConflictFixed){
+String[] adminPermissions = acl.get("Admin");
+    if (adminPermissions != null && adminPermissions.length > 3 && adminPermissions[3].equals("Limited Access")) {
+        return "Conflict Detected!:Admin has limited access\n,which is incorrect.\nSuggested Fix: Assign Admin full access.";
+    }}
+    return "No conflict detected.";  
+}
+public void fixAdminConflict() {
+    if(!adminConflictFixed){
+ String[] adminPermissions = acl.get("Admin");
+    if (adminPermissions != null && adminPermissions.length > 3 && adminPermissions[3].equals("Limited Access")) {
+        adminPermissions[3] = "Full System Access";  
+        acl.put("Admin", adminPermissions); 
+        adminConflictFixed=true;
+    }}}
+
+public boolean isAdminConflictFixed() {
+        return adminConflictFixed;  
+    }
+
+    
+}
